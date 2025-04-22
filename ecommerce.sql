@@ -1,18 +1,24 @@
- -- Table: brand
+-- Create the ecommerce database
+CREATE DATABASE ecommerce;
+
+-- Use the ecommerce database
+USE ecommerce;
+
+-- Create tables
 CREATE TABLE brand (
     brand_id INT PRIMARY KEY AUTO_INCREMENT,
     name VARCHAR(255) NOT NULL,
     description TEXT
 );
 
--- Table: product_category
+
 CREATE TABLE product_category (
     category_id INT PRIMARY KEY AUTO_INCREMENT,
     name VARCHAR(255) NOT NULL,
     description TEXT
 );
 
--- Table: product
+
 CREATE TABLE product (
     product_id INT PRIMARY KEY AUTO_INCREMENT,
     name VARCHAR(255) NOT NULL,
@@ -23,7 +29,7 @@ CREATE TABLE product (
     FOREIGN KEY (category_id) REFERENCES product_category(category_id)
 );
 
--- Table: product_image
+
 CREATE TABLE product_image (
     image_id INT PRIMARY KEY AUTO_INCREMENT,
     product_id INT,
@@ -31,7 +37,7 @@ CREATE TABLE product_image (
     FOREIGN KEY (product_id) REFERENCES product(product_id)
 );
 
--- Table: color
+
 CREATE TABLE color (
     color_id INT PRIMARY KEY AUTO_INCREMENT,
     name VARCHAR(100) NOT NULL,
@@ -44,7 +50,7 @@ CREATE TABLE size_category (
     name VARCHAR(255) NOT NULL
 );
 
--- Table: size_option
+
 CREATE TABLE size_option (
     size_option_id INT PRIMARY KEY AUTO_INCREMENT,
     size_category_id INT,
@@ -52,7 +58,7 @@ CREATE TABLE size_option (
     FOREIGN KEY (size_category_id) REFERENCES size_category(size_category_id)
 );
 
--- Table: product_variation
+
 CREATE TABLE product_variation (
     variation_id INT PRIMARY KEY AUTO_INCREMENT,
     product_id INT,
@@ -63,7 +69,7 @@ CREATE TABLE product_variation (
     FOREIGN KEY (size_option_id) REFERENCES size_option(size_option_id)
 );
 
--- Table: product_item
+
 CREATE TABLE product_item (
     item_id INT PRIMARY KEY AUTO_INCREMENT,
     variation_id INT,
@@ -73,20 +79,20 @@ CREATE TABLE product_item (
     FOREIGN KEY (variation_id) REFERENCES product_variation(variation_id)
 );
 
--- Table: attribute_category
+
 CREATE TABLE attribute_category (
     attribute_category_id INT PRIMARY KEY AUTO_INCREMENT,
     name VARCHAR(255) NOT NULL
 );
 
--- Table: attribute_type
+
 CREATE TABLE attribute_type (
     attribute_type_id INT PRIMARY KEY AUTO_INCREMENT,
     name VARCHAR(255) NOT NULL,
     data_type ENUM('text', 'number', 'boolean') NOT NULL
 );
 
--- Table: product_attribute
+
 CREATE TABLE product_attribute (
     attribute_id INT PRIMARY KEY AUTO_INCREMENT,
     product_id INT,
