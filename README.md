@@ -1,11 +1,10 @@
-# 🛒 eCommerce Database (Beginner-Friendly Guide)
-
+# eCommerce Database 
 Hey there! 👋  
 This project is all about building the database for an online store. It keeps track of products, brands, sizes, colors, images, stock levels, and more. If you're learning how eCommerce websites work behind the scenes, you're in the right place!
 
 ---
 
-## 🗃️ What Is This?
+## What Is This?
 
 This is a **MySQL database** for an online shop. It has all the basic tables you'd need to:
 
@@ -17,7 +16,7 @@ This is a **MySQL database** for an online shop. It has all the basic tables you
 
 ---
 
-## 🏗️ How to Set It Up
+## How to Set It Up
 
 1. **Create the database:**
 
